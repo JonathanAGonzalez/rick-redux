@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 
@@ -30,8 +30,7 @@ function Home() {
   }, [dispatch]);
 
   return (
-    <main className="Home">
-      <h1>El mundo de rick</h1>
+    <main className="container__home">
       <form onSubmit={formik.handleSubmit}>
         <TextField
           id="outlined-basic"
@@ -39,15 +38,19 @@ function Home() {
           name="name"
           variant="outlined"
           onChange={formik.handleChange}
+          fullWidth
         />
         <p>{formik.errors.name}</p>
       </form>
 
-      {characters?.map((character) => (
-        <div key={character.id}>
-          <h2>{character.name}</h2>
-        </div>
-      ))}
+      <div className="container__list--card">
+        {characters?.map((character, index) => (
+          <h2 key={character.id}>
+            {character.name}
+            {index !== characters.length - 1 && ','}
+          </h2>
+        ))}
+      </div>
     </main>
   );
 }

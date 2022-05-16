@@ -29,8 +29,29 @@ a:hover {
   color: #f3f3f3;
 }
 
+form {
+  width: 80%;
+}
+
 .container__cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.container__home {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container__list--card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
 }
